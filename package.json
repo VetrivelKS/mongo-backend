@@ -1,0 +1,15 @@
+{
+  "name": "backendTest",
+  "version": "1.0.0",
+  "author": "Vetri",
+  "scripts": {
+    "buildDocker": "docker build -t dockerstrange101/backend:tag1 .",
+    "startDocker": "docker run -it -p 27017:27017 --name mongo-container dockerstrange101/backend:tag1",
+    "getMongosh": "docker exec -it mongo-container mongosh",
+    "dockerPush": "docker push dockerstrange101/backend:tag1",
+    "kubStart": "minikube start --container-runtime=docker --vm=true",
+    "kubApply": "kubectl apply -f deployment.yaml",
+    "kubFindUrl": "minikube service react-service --url",
+    "_ps": "process status,docker ps only shows the running containers"
+  }
+}
